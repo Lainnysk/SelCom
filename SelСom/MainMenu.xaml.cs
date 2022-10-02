@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace SelСom
 {
@@ -26,6 +27,11 @@ namespace SelСom
 
             SexBox.Items.Add("М");
             SexBox.Items.Add("Ж");
+
+            StatusBox.Items.Add("В обработке");
+            StatusBox.Items.Add("Конкурс");
+            StatusBox.Items.Add("Зачислен");
+            StatusBox.Items.Add("Отклонен");
 
             UpdateApplicants();
             UpdatePassports();
@@ -60,6 +66,7 @@ namespace SelСom
             //ApplicantsGrid.ItemsSource = table;
         }
 
+
         private void UpdateAchievements()
         {
             AchievementsTableAdapter adapter = new AchievementsTableAdapter();
@@ -85,10 +92,23 @@ namespace SelСom
                 int NewIdCertificate = Convert.ToInt32(new ApplicantsTableAdapter().GetSertificateInsertedID(NumSert.Text));
                 MessageBox.Show(NewIdCertificate.ToString());
 
-                new ApplicantsTableAdapter().InsertQuery(Surname.Text, Name.Text, Patronymic.Text, SexBox.SelectedValue.ToString(), DateOfBirth.Text, Email.Text, PhoneNum.Text, "sdfsdf", "sdfsdf", NewIdPassport, NewIdAchievment, NewIdCertificate);
+                new ApplicantsTableAdapter().InsertQuery(Surname.Text, Name.Text, Patronymic.Text, SexBox.SelectedValue.ToString(), DateOfBirth.Text, Email.Text, PhoneNum.Text, "sdfsdf", StatusBox.SelectedValue.ToString(), NewIdPassport, NewIdAchievment, NewIdCertificate);
                 UpdateApplicants();
+
+                int NewIdApplicant = Convert.ToInt32(new ApplicantsTableAdapter().GetApplicantInsertedID(NewIdPassport));
+
+                var chekedContents = ApplicantSpecBox.Items.OfType<ComboBoxItem>().Where(cbi => (((StackPanel)cbi.Content).Children[0].GetType() == typeof(CheckBox)) &
+                                                                        (((CheckBox)((StackPanel)cbi.Content).Children[0]).IsChecked == true)
+                                                                        ).Select(cbi => new { ((CheckBox)((StackPanel)cbi.Content).Children[0]).Content }.ToString());
+                List<string> chekedContentsLst = chekedContents.ToList();
+
+                for (int i = 0; i <= chekedContentsLst.Count-1; i++)
+                {
+                    new Applicants_SpecialtiesTableAdapter().InsertQuery(NewIdApplicant, chekedContentsLst[i].Substring(12, 8)); 
+                }
+
             }
-            catch { }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
@@ -101,5 +121,63 @@ namespace SelСom
 
         }
 
+        private void StatusBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+           
+        }
+
+        private void ApplicantsGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                int ApplicantId = Convert.ToInt32((ApplicantsGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+
+                var datarow = new ApplicantsTableAdapter().GetNormalApplicantView(ApplicantId);
+
+                Surname.Text = datarow.Rows[0]["Surname"].ToString();
+                Name.Text = datarow.Rows[0]["Name"].ToString();
+                Patronymic.Text = datarow.Rows[0]["Patronymic"].ToString();
+                PhoneNum.Text = datarow.Rows[0]["Phone_Number"].ToString();
+                DateOfBirth.SelectedDate = Convert.ToDateTime(datarow.Rows[0]["Birth_Date"].ToString());
+                Email.Text = datarow.Rows[0]["Email"].ToString();
+                SexBox.SelectedValue = datarow.Rows[0]["Sex"].ToString();
+                SeriesPass.Text = datarow.Rows[0]["Series"].ToString();
+                NumPass.Text = datarow.Rows[0]["Number"].ToString();
+                DivCode.Text = datarow.Rows[0]["Division_Code"].ToString();
+                PassIssueDate.SelectedDate = Convert.ToDateTime(datarow.Rows[0]["Issue_Date_Passport"].ToString());
+                Issued.Text = datarow.Rows[0]["Issued"].ToString();
+                NumSert.Text = datarow.Rows[0]["Number_Sert"].ToString();
+                SertIssueDate.SelectedDate = Convert.ToDateTime(datarow.Rows[0]["Issue_Date_Sertificate"].ToString());
+                GPA.Text = datarow.Rows[0]["GPA"].ToString();
+                Education.Text = datarow.Rows[0]["Educational_Institution"].ToString();
+                gto.IsChecked = Convert.ToBoolean(datarow.Rows[0]["Gold_GTO"]);
+                olimp.IsChecked = Convert.ToBoolean(datarow.Rows[0]["Olympic_Medalist"]);
+                SertificateOrig.IsChecked = Convert.ToBoolean(datarow.Rows[0]["Certificate_Original"]);
+                StatusBox.SelectedValue = datarow.Rows[0]["Status"].ToString();
+
+                chB090207.IsChecked = false;
+                chB090201.IsChecked = false;
+                chB090206.IsChecked = false;
+
+                var AppSpec = new Applicants_SpecialtiesTableAdapter().GetApplicantSpec(ApplicantId);
+
+                for (int i = 0; i < AppSpec.Rows.Count; i++)
+                {
+                    switch (AppSpec.Rows[i][2].ToString())
+                    {
+                        case "09.02.07":
+                            chB090207.IsChecked = true;
+                            break;
+                        case "09.02.01":
+                            chB090201.IsChecked = true;
+                            break;
+                        case "09.02.06":
+                            chB090206.IsChecked = true;
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
     }
 }

@@ -13,7 +13,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid Margin="2,4,4,3">
-        <DataGrid x:Name="ApplicantsGrid" IsReadOnly="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,305,10,10"/>
+        <DataGrid x:Name="ApplicantsGrid" IsReadOnly="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,305,10,10" MouseDoubleClick="ApplicantsGrid_MouseDoubleClick"/>
 
 
         <ScrollViewer Margin="16,50,95,285" VerticalScrollBarVisibility="Hidden">
@@ -153,17 +153,17 @@
                 <ComboBox x:Name="ApplicantSpecBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,12,0,0" VerticalAlignment="Top" Width="128" FontSize="14" Height="18">
                     <ComboBoxItem>
                         <StackPanel>
-                            <CheckBox Content="Aa" IsChecked="True"></CheckBox>
+                            <CheckBox Name="chB090207" Content="09.02.07" IsChecked="False"></CheckBox>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <CheckBox Content="Bb" IsChecked="False"></CheckBox>
+                            <CheckBox Name="chB090201" Content="09.02.01" IsChecked="False"></CheckBox>
                         </StackPanel>
                     </ComboBoxItem>
                     <ComboBoxItem>
                         <StackPanel>
-                            <CheckBox Content="Cc" IsChecked="True"></CheckBox>
+                            <CheckBox Name="chB090206" Content="09.02.06" IsChecked="False"></CheckBox>
                         </StackPanel>
                     </ComboBoxItem>
                 </ComboBox>
