@@ -1,0 +1,181 @@
+﻿<Window x:Class="SelСom.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SelСom"
+        mc:Ignorable="d"
+        Title="" Height="600" Width="1240">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFB3B3B3" Offset="1"/>
+            <GradientStop Color="White" Offset="0"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Grid Margin="2,4,4,3">
+        <DataGrid x:Name="ApplicantsGrid" IsReadOnly="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,305,10,10"/>
+
+
+        <ScrollViewer Margin="16,50,95,285" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="49,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Фамилия"/></TextBlock>
+                <TextBox x:Name="Surname" HorizontalAlignment="Left" Height="18" Margin="10,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="62,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Имя"/></TextBlock>
+                <TextBox x:Name="Name" HorizontalAlignment="Left" Height="18" Margin="10,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="49,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Text="Отче"/><Run Language="ru-ru" Text="ст"/><Run Text="во"/></TextBlock>
+                <TextBox x:Name="Patronymic" HorizontalAlignment="Left" Height="18" Margin="10,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="28,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Номер телефона"/></TextBlock>
+                <TextBox x:Name="PhoneNum" HorizontalAlignment="Left" Height="18" Margin="10,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <DatePicker x:Name="DateOfBirth" HorizontalAlignment="Left" Margin="10,119,0,0" VerticalAlignment="Top" Height="18" Width="128" BorderBrush="#FF172A3B" Foreground="#FF172A3B" Background="#7c9fb0" FontFamily="/Antiques;component/Font/#Roboto" FontSize="9" IsEnabled="True"/>
+                <ComboBox x:Name="SexBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="155,12,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18"/>
+                <TextBlock HorizontalAlignment="Left" Margin="208,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Пол"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="32,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Дата рождения"/></TextBlock>
+                <TextBlock HorizontalAlignment="Left" Margin="166,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light" Text=""/>
+                <TextBox x:Name="SeriesPass" HorizontalAlignment="Left" Height="18" Margin="338,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="356,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Серия паспорта"/></TextBlock>
+                <TextBox x:Name="NumPass" HorizontalAlignment="Left" Height="18" Margin="338,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="356,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Номер"/><Run Text=" паспорта"/></TextBlock>
+                <TextBox x:Name="DivCode" HorizontalAlignment="Left" Height="18" Margin="338,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="348,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Код подразделения"/></TextBlock>
+                <TextBox x:Name="Issued" HorizontalAlignment="Left" Height="114" Margin="337,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="370,273,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Кем выдан"/></TextBlock>
+                <DatePicker x:Name="PassIssueDate" HorizontalAlignment="Left" Margin="338,119,0,0" VerticalAlignment="Top" Height="18" Width="128" BorderBrush="#FF172A3B" Foreground="#FF172A3B" Background="#7c9fb0" FontFamily="/Antiques;component/Font/#Roboto" FontSize="9" IsEnabled="True"/>
+                <TextBlock HorizontalAlignment="Left" Margin="340,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Text="Дата "/><Run Text="выдачи"/><Run Language="ru-ru" Text=" паспорта"/></TextBlock>
+                <TextBox x:Name="NumSert" HorizontalAlignment="Left" Height="18" Margin="650,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="669,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Номер аттестата"/></TextBlock>
+                <DatePicker x:Name="SertIssueDate" HorizontalAlignment="Left" Margin="650,49,0,0" VerticalAlignment="Top" Height="18" Width="128" BorderBrush="#FF172A3B" Foreground="#FF172A3B" Background="#7c9fb0" FontFamily="/Antiques;component/Font/#Roboto" FontSize="9" IsEnabled="True"/>
+                <TextBlock HorizontalAlignment="Left" Margin="652,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Text="Дата "/><Run Text="выдачи"/><Run Language="ru-ru" Text=" аттестата"/></TextBlock>
+                <TextBox x:Name="Education" HorizontalAlignment="Left" Height="53" Margin="650,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="664,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Обр. учреждение"/></TextBlock>
+                <TextBox x:Name="GPA" HorizontalAlignment="Left" Height="18" Margin="650,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock HorizontalAlignment="Left" Margin="675,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Средний балл"/></TextBlock>
+                <CheckBox x:Name="gto" Content="Золото ГТО" HorizontalAlignment="Left" Margin="650,190,0,0" VerticalAlignment="Top"/>
+                <CheckBox x:Name="olimp" Content="Олимпиадник" HorizontalAlignment="Left" Margin="650,212,0,0" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="49,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Эл. почта"/></TextBlock>
+                <TextBox x:Name="Email" HorizontalAlignment="Left" Height="18" Margin="10,192,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" FontFamily="/Antiques;component/Font/#Roboto" FontSize="14" BorderBrush="#FF172A3B" Foreground="#FF172A3B" SelectionBrush="#FF172A3B">
+                    <TextBox.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#7c9fb0" Offset="0"/>
+                            <GradientStop Color="#FFDBEBF3" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBox.Background>
+                </TextBox>
+                <Image x:Name="ApplicantPhoto" HorizontalAlignment="Left" Source="PhotoScan\oleg34.jpg" Height="161" Margin="159,49,0,0" VerticalAlignment="Top" Width="121"/>
+                <Button x:Name="LoadPassPhoto" Content="Загрузить фото 3x4" HorizontalAlignment="Left" Margin="155,215,0,0" VerticalAlignment="Top" Width="128" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+                <Image x:Name="PassScanFirst" HorizontalAlignment="Left" Source="PhotoScan\pass1.png" Height="142" Margin="484,12,0,0" VerticalAlignment="Top" Width="117"/>
+                <Button x:Name="LoadPassScan1" Content="Скан паспорта 1" HorizontalAlignment="Left" Margin="478,157,0,0" VerticalAlignment="Top" Width="128" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+                <Image x:Name="PassScanSecond" HorizontalAlignment="Left" Source="/PhotoScan/pass2.jpg" Height="92" Margin="478,182,0,0" VerticalAlignment="Top" Width="128"/>
+                <Button x:Name="LoadPassScan2" Content="Скан паспорта 2" HorizontalAlignment="Left" Margin="478,275,0,0" VerticalAlignment="Top" Width="128" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+                <Image x:Name="SertScanFirst" HorizontalAlignment="Left" Source="/PhotoScan/sertificate1.jpg" Height="92" Margin="796,12,0,0" VerticalAlignment="Top" Width="128"/>
+                <Button x:Name="LoadSertScan1" Content="Скан аттестата" HorizontalAlignment="Left" Margin="796,109,0,0" VerticalAlignment="Top" Width="128" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+                <Image x:Name="SertScanSecond" HorizontalAlignment="Left" Source="/PhotoScan/sertificate2.jpg" Height="92" Margin="796,137,0,0" VerticalAlignment="Top" Width="128"/>
+                <Button x:Name="LoadSertScan2" Content="Скан приложения аттестата" HorizontalAlignment="Left" Margin="781,232,0,0" VerticalAlignment="Top" Width="158" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+                <CheckBox x:Name="SertificateOrig" Content="Оригинал аттестата" HorizontalAlignment="Left" Margin="959,54,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,81,0,0" VerticalAlignment="Top" Width="128" FontSize="14" Height="18"/>
+                <TextBlock HorizontalAlignment="Left" Margin="1004,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Статус "/></TextBlock>
+                <ComboBox x:Name="ApplicantSpecBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,12,0,0" VerticalAlignment="Top" Width="128" FontSize="14" Height="18">
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <CheckBox Content="Aa" IsChecked="True"></CheckBox>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <CheckBox Content="Bb" IsChecked="False"></CheckBox>
+                        </StackPanel>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <StackPanel>
+                            <CheckBox Content="Cc" IsChecked="True"></CheckBox>
+                        </StackPanel>
+                    </ComboBoxItem>
+                </ComboBox>
+                <TextBlock HorizontalAlignment="Left" Margin="943,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light" Width="160"><Run Language="ru-ru" Text="Специальности абитуриента"/></TextBlock>
+
+            </Grid>
+        </ScrollViewer>
+        <Button x:Name="AddBtn_Copy" Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" Height="22" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal"/>
+        <Button x:Name="AddBtn" Content="Добавить" HorizontalAlignment="Left" Margin="1144,50,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
+        <Button x:Name="EditBtn" Content="Изменить" HorizontalAlignment="Left" Margin="1144,97,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="EditBtn_Click" BorderBrush="#FF172A3B" Background="#FFE4BF80" FontWeight="Normal"/>
+        <Button x:Name="DeleteBtn" Content="Удалить" HorizontalAlignment="Left" Margin="1144,144,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="DeleteBtn_Click" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal"/>
+        <ComboBox x:Name="StatusBox_Copy" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="26,260,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18"/>
+        <TextBlock HorizontalAlignment="Left" Margin="48,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Специальность"/></TextBlock>
+    </Grid>
+</Window>

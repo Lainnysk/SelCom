@@ -18,11 +18,17 @@ namespace SelСom
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LogIn : Window
     {
-        public MainWindow()
+        public LogIn()
         {
             InitializeComponent();
+        }
+
+        private void LogIn_Click(object sender, RoutedEventArgs e)
+        {   
+            new MainMenu().Show();
+            this.Close();
         }
     }
 }
