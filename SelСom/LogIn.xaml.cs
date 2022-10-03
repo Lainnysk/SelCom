@@ -1,23 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SelСom.DataSet_SelComTableAdapters;
 
 namespace SelСom
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class LogIn : Window
     {
         public LogIn()
@@ -26,9 +12,13 @@ namespace SelСom
         }
 
         private void LogIn_Click(object sender, RoutedEventArgs e)
-        {   
-            new MainMenu().Show();
-            this.Close();
+        {
+            if (new EmployeesTableAdapter().LogInQuery(Login.Text, Password.Password) != null)
+            {
+                new MainMenu(Convert.ToInt32(new EmployeesTableAdapter().LogInQuery(Login.Text, Password.Password))).Show();
+                this.Close();
+            }
+            else MessageBox.Show("Неверный логин или пароль");
         }
     }
 }

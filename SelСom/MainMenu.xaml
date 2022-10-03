@@ -13,7 +13,7 @@
         </LinearGradientBrush>
     </Window.Background>
     <Grid Margin="2,4,4,3">
-        <DataGrid x:Name="ApplicantsGrid" IsReadOnly="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,305,10,10" MouseDoubleClick="ApplicantsGrid_MouseDoubleClick"/>
+        <DataGrid CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" x:Name="ApplicantsGrid" IsReadOnly="False" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,305,10,10" MouseDoubleClick="ApplicantsGrid_MouseDoubleClick"/>
 
 
         <ScrollViewer Margin="16,50,95,285" VerticalScrollBarVisibility="Hidden">
@@ -171,7 +171,7 @@
 
             </Grid>
         </ScrollViewer>
-        <Button x:Name="AddBtn_Copy" Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" Height="22" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal"/>
+        <Button x:Name="ExitBtn" Content="Выход" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="58" Height="22" FontFamily="/Antiques;component/Font/#Roboto Light" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal" Click="ExitBtn_Click"/>
         <Button x:Name="AddBtn" Content="Добавить" HorizontalAlignment="Left" Margin="1144,50,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
         <Button x:Name="EditBtn" Content="Изменить" HorizontalAlignment="Left" Margin="1144,97,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="EditBtn_Click" BorderBrush="#FF172A3B" Background="#FFE4BF80" FontWeight="Normal"/>
         <Button x:Name="DeleteBtn" Content="Удалить" HorizontalAlignment="Left" Margin="1144,144,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="DeleteBtn_Click" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal"/>

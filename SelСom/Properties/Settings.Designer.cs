@@ -26,7 +26,7 @@ namespace SelСom.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NIKOLAY;Initial Catalog=SelComDB;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-D7LJCGN;Initial Catalog=SelComDB;Integrated Security=True")]
         public string SelComDBConnectionString {
             get {
                 return ((string)(this["SelComDBConnectionString"]));

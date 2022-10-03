@@ -1,27 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using SelСom.DataSet_SelComTableAdapters;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Data;
 
 namespace SelСom
 {
-    /// <summary>
-    /// Логика взаимодействия для MainMenu.xaml
-    /// </summary>
     public partial class MainMenu : Window
     {
-        public MainMenu()
+        public MainMenu(int ID)
         {
             InitializeComponent();
 
@@ -33,11 +23,11 @@ namespace SelСom
             StatusBox.Items.Add("Зачислен");
             StatusBox.Items.Add("Отклонен");
 
-            Specialties.Items.Add("all");
+            Specialties.Items.Add("Все");
             Specialties.Items.Add("09.02.07");
             Specialties.Items.Add("09.02.01");
             Specialties.Items.Add("09.02.06");
-            Specialties.SelectedValue = "all";
+            Specialties.SelectedValue = "Все";
 
             UpdateApplicants();
             UpdatePassports();
@@ -49,10 +39,6 @@ namespace SelСom
         {
             try
             {
-                //ApplicantsViewTableAdapter adapter = new ApplicantsViewTableAdapter();
-                //DataSet_SelCom.ApplicantsViewDataTable table = new DataSet_SelCom.ApplicantsViewDataTable();
-                //adapter.FillAll(table);
-
                 ApplicantsViewTableAdapter adapterall = new ApplicantsViewTableAdapter();
                 DataSet_SelCom.ApplicantsViewDataTable tableall = new DataSet_SelCom.ApplicantsViewDataTable();
                 adapterall.Fill(tableall);
@@ -75,15 +61,12 @@ namespace SelСom
             adapter.Fill(table);
         }
 
-
         private void UpdateAchievements()
         {
             AchievementsTableAdapter adapter = new AchievementsTableAdapter();
             DataSet_SelCom.AchievementsDataTable table = new DataSet_SelCom.AchievementsDataTable();
             adapter.Fill(table);
         }
-
-       
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
@@ -113,19 +96,32 @@ namespace SelСom
                 {
                     new Applicants_SpecialtiesTableAdapter().InsertQuery(NewIdApplicant, chekedContentsLst[i].Substring(12, 8)); 
                 }
-
             }
             catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
 
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка удаления");
+            }
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                new ApplicantsTableAdapter().DeleteQuery(Convert.ToInt32((ApplicantsGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString()));
+            }
+            catch
+            {
+                MessageBox.Show("Выберите данные для удаления");
+            }
         }
 
         private void StatusBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -204,7 +200,12 @@ namespace SelСom
                 adapterall.Fill(tableall);
                 ApplicantsGrid.ItemsSource = tableall;
             }
+        }
 
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
+        {
+            new LogIn().Show();
+            this.Close();
         }
     }
 }
