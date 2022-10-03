@@ -36,8 +36,6 @@ namespace SelСom {
         
         private EmployeeViewDataTable tableEmployeeView;
         
-        private SpecialtiesApplicantsViewDataTable tableSpecialtiesApplicantsView;
-        
         private SpecialtiesDataTable tableSpecialties;
         
         private Applicants_SpecialtiesDataTable tableApplicants_Specialties;
@@ -48,17 +46,19 @@ namespace SelСom {
         
         private ApplicantsViewDataTable tableApplicantsView;
         
-        private global::System.Data.DataRelation relationFK__Applicant__Achie__4E53A1AA;
+        private SpecialtisApplicantsViewDataTable tableSpecialtisApplicantsView;
         
         private global::System.Data.DataRelation relationFK__Employees__Role___3B75D760;
         
-        private global::System.Data.DataRelation relationFK__Applicant__Appli__7E02B4CC;
-        
         private global::System.Data.DataRelation relationFK__Applicant__Speci__7EF6D905;
         
-        private global::System.Data.DataRelation relationFK__Applicant__Certi__4F47C5E3;
+        private global::System.Data.DataRelation relationFK__Applicant__Appli__7E02B4CC;
         
-        private global::System.Data.DataRelation relationFK__Applicant__Passp__4D5F7D71;
+        private global::System.Data.DataRelation relationFK__Applicant__Achie__2AD55B43;
+        
+        private global::System.Data.DataRelation relationFK__Applicant__Certi__2BC97F7C;
+        
+        private global::System.Data.DataRelation relationFK__Applicant__Passp__29E1370A;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -106,9 +106,6 @@ namespace SelСom {
                 if ((ds.Tables["EmployeeView"] != null)) {
                     base.Tables.Add(new EmployeeViewDataTable(ds.Tables["EmployeeView"]));
                 }
-                if ((ds.Tables["SpecialtiesApplicantsView"] != null)) {
-                    base.Tables.Add(new SpecialtiesApplicantsViewDataTable(ds.Tables["SpecialtiesApplicantsView"]));
-                }
                 if ((ds.Tables["Specialties"] != null)) {
                     base.Tables.Add(new SpecialtiesDataTable(ds.Tables["Specialties"]));
                 }
@@ -123,6 +120,9 @@ namespace SelСom {
                 }
                 if ((ds.Tables["ApplicantsView"] != null)) {
                     base.Tables.Add(new ApplicantsViewDataTable(ds.Tables["ApplicantsView"]));
+                }
+                if ((ds.Tables["SpecialtisApplicantsView"] != null)) {
+                    base.Tables.Add(new SpecialtisApplicantsViewDataTable(ds.Tables["SpecialtisApplicantsView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +206,6 @@ namespace SelСom {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SpecialtiesApplicantsViewDataTable SpecialtiesApplicantsView {
-            get {
-                return this.tableSpecialtiesApplicantsView;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SpecialtiesDataTable Specialties {
             get {
                 return this.tableSpecialties;
@@ -259,6 +249,16 @@ namespace SelСom {
         public ApplicantsViewDataTable ApplicantsView {
             get {
                 return this.tableApplicantsView;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SpecialtisApplicantsViewDataTable SpecialtisApplicantsView {
+            get {
+                return this.tableSpecialtisApplicantsView;
             }
         }
         
@@ -347,9 +347,6 @@ namespace SelСom {
                 if ((ds.Tables["EmployeeView"] != null)) {
                     base.Tables.Add(new EmployeeViewDataTable(ds.Tables["EmployeeView"]));
                 }
-                if ((ds.Tables["SpecialtiesApplicantsView"] != null)) {
-                    base.Tables.Add(new SpecialtiesApplicantsViewDataTable(ds.Tables["SpecialtiesApplicantsView"]));
-                }
                 if ((ds.Tables["Specialties"] != null)) {
                     base.Tables.Add(new SpecialtiesDataTable(ds.Tables["Specialties"]));
                 }
@@ -364,6 +361,9 @@ namespace SelСom {
                 }
                 if ((ds.Tables["ApplicantsView"] != null)) {
                     base.Tables.Add(new ApplicantsViewDataTable(ds.Tables["ApplicantsView"]));
+                }
+                if ((ds.Tables["SpecialtisApplicantsView"] != null)) {
+                    base.Tables.Add(new SpecialtisApplicantsViewDataTable(ds.Tables["SpecialtisApplicantsView"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -434,12 +434,6 @@ namespace SelСom {
                     this.tableEmployeeView.InitVars();
                 }
             }
-            this.tableSpecialtiesApplicantsView = ((SpecialtiesApplicantsViewDataTable)(base.Tables["SpecialtiesApplicantsView"]));
-            if ((initTable == true)) {
-                if ((this.tableSpecialtiesApplicantsView != null)) {
-                    this.tableSpecialtiesApplicantsView.InitVars();
-                }
-            }
             this.tableSpecialties = ((SpecialtiesDataTable)(base.Tables["Specialties"]));
             if ((initTable == true)) {
                 if ((this.tableSpecialties != null)) {
@@ -470,12 +464,18 @@ namespace SelСom {
                     this.tableApplicantsView.InitVars();
                 }
             }
-            this.relationFK__Applicant__Achie__4E53A1AA = this.Relations["FK__Applicant__Achie__4E53A1AA"];
+            this.tableSpecialtisApplicantsView = ((SpecialtisApplicantsViewDataTable)(base.Tables["SpecialtisApplicantsView"]));
+            if ((initTable == true)) {
+                if ((this.tableSpecialtisApplicantsView != null)) {
+                    this.tableSpecialtisApplicantsView.InitVars();
+                }
+            }
             this.relationFK__Employees__Role___3B75D760 = this.Relations["FK__Employees__Role___3B75D760"];
-            this.relationFK__Applicant__Appli__7E02B4CC = this.Relations["FK__Applicant__Appli__7E02B4CC"];
             this.relationFK__Applicant__Speci__7EF6D905 = this.Relations["FK__Applicant__Speci__7EF6D905"];
-            this.relationFK__Applicant__Certi__4F47C5E3 = this.Relations["FK__Applicant__Certi__4F47C5E3"];
-            this.relationFK__Applicant__Passp__4D5F7D71 = this.Relations["FK__Applicant__Passp__4D5F7D71"];
+            this.relationFK__Applicant__Appli__7E02B4CC = this.Relations["FK__Applicant__Appli__7E02B4CC"];
+            this.relationFK__Applicant__Achie__2AD55B43 = this.Relations["FK__Applicant__Achie__2AD55B43"];
+            this.relationFK__Applicant__Certi__2BC97F7C = this.Relations["FK__Applicant__Certi__2BC97F7C"];
+            this.relationFK__Applicant__Passp__29E1370A = this.Relations["FK__Applicant__Passp__29E1370A"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -498,8 +498,6 @@ namespace SelСom {
             base.Tables.Add(this.tableSpecialtiesView);
             this.tableEmployeeView = new EmployeeViewDataTable();
             base.Tables.Add(this.tableEmployeeView);
-            this.tableSpecialtiesApplicantsView = new SpecialtiesApplicantsViewDataTable();
-            base.Tables.Add(this.tableSpecialtiesApplicantsView);
             this.tableSpecialties = new SpecialtiesDataTable();
             base.Tables.Add(this.tableSpecialties);
             this.tableApplicants_Specialties = new Applicants_SpecialtiesDataTable();
@@ -510,30 +508,32 @@ namespace SelСom {
             base.Tables.Add(this.tablePassports);
             this.tableApplicantsView = new ApplicantsViewDataTable();
             base.Tables.Add(this.tableApplicantsView);
-            this.relationFK__Applicant__Achie__4E53A1AA = new global::System.Data.DataRelation("FK__Applicant__Achie__4E53A1AA", new global::System.Data.DataColumn[] {
-                        this.tableAchievements.ID_AchievementColumn}, new global::System.Data.DataColumn[] {
-                        this.tableApplicants.Achievement_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Applicant__Achie__4E53A1AA);
+            this.tableSpecialtisApplicantsView = new SpecialtisApplicantsViewDataTable();
+            base.Tables.Add(this.tableSpecialtisApplicantsView);
             this.relationFK__Employees__Role___3B75D760 = new global::System.Data.DataRelation("FK__Employees__Role___3B75D760", new global::System.Data.DataColumn[] {
                         this.tableRoles.ID_RoleColumn}, new global::System.Data.DataColumn[] {
                         this.tableEmployees.Role_IDColumn}, false);
             this.Relations.Add(this.relationFK__Employees__Role___3B75D760);
-            this.relationFK__Applicant__Appli__7E02B4CC = new global::System.Data.DataRelation("FK__Applicant__Appli__7E02B4CC", new global::System.Data.DataColumn[] {
-                        this.tableApplicants.ID_ApplicantColumn}, new global::System.Data.DataColumn[] {
-                        this.tableApplicants_Specialties.Applicant_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Applicant__Appli__7E02B4CC);
             this.relationFK__Applicant__Speci__7EF6D905 = new global::System.Data.DataRelation("FK__Applicant__Speci__7EF6D905", new global::System.Data.DataColumn[] {
                         this.tableSpecialties.ID_SpecialityColumn}, new global::System.Data.DataColumn[] {
                         this.tableApplicants_Specialties.Speciality_IDColumn}, false);
             this.Relations.Add(this.relationFK__Applicant__Speci__7EF6D905);
-            this.relationFK__Applicant__Certi__4F47C5E3 = new global::System.Data.DataRelation("FK__Applicant__Certi__4F47C5E3", new global::System.Data.DataColumn[] {
+            this.relationFK__Applicant__Appli__7E02B4CC = new global::System.Data.DataRelation("FK__Applicant__Appli__7E02B4CC", new global::System.Data.DataColumn[] {
+                        this.tableApplicants.ID_ApplicantColumn}, new global::System.Data.DataColumn[] {
+                        this.tableApplicants_Specialties.Applicant_IDColumn}, false);
+            this.Relations.Add(this.relationFK__Applicant__Appli__7E02B4CC);
+            this.relationFK__Applicant__Achie__2AD55B43 = new global::System.Data.DataRelation("FK__Applicant__Achie__2AD55B43", new global::System.Data.DataColumn[] {
+                        this.tableAchievements.ID_AchievementColumn}, new global::System.Data.DataColumn[] {
+                        this.tableApplicants.Achievement_IDColumn}, false);
+            this.Relations.Add(this.relationFK__Applicant__Achie__2AD55B43);
+            this.relationFK__Applicant__Certi__2BC97F7C = new global::System.Data.DataRelation("FK__Applicant__Certi__2BC97F7C", new global::System.Data.DataColumn[] {
                         this.tableCertificates.ID_CertificateColumn}, new global::System.Data.DataColumn[] {
                         this.tableApplicants.Certificate_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Applicant__Certi__4F47C5E3);
-            this.relationFK__Applicant__Passp__4D5F7D71 = new global::System.Data.DataRelation("FK__Applicant__Passp__4D5F7D71", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__Applicant__Certi__2BC97F7C);
+            this.relationFK__Applicant__Passp__29E1370A = new global::System.Data.DataRelation("FK__Applicant__Passp__29E1370A", new global::System.Data.DataColumn[] {
                         this.tablePassports.ID_PassportColumn}, new global::System.Data.DataColumn[] {
                         this.tableApplicants.Passport_IDColumn}, false);
-            this.Relations.Add(this.relationFK__Applicant__Passp__4D5F7D71);
+            this.Relations.Add(this.relationFK__Applicant__Passp__29E1370A);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -574,12 +574,6 @@ namespace SelСom {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeSpecialtiesApplicantsView() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeSpecialties() {
             return false;
         }
@@ -605,6 +599,12 @@ namespace SelСom {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeApplicantsView() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeSpecialtisApplicantsView() {
             return false;
         }
         
@@ -682,9 +682,6 @@ namespace SelСom {
         public delegate void EmployeeViewRowChangeEventHandler(object sender, EmployeeViewRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void SpecialtiesApplicantsViewRowChangeEventHandler(object sender, SpecialtiesApplicantsViewRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void SpecialtiesRowChangeEventHandler(object sender, SpecialtiesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -698,6 +695,9 @@ namespace SelСom {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ApplicantsViewRowChangeEventHandler(object sender, ApplicantsViewRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void SpecialtisApplicantsViewRowChangeEventHandler(object sender, SpecialtisApplicantsViewRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1198,7 +1198,7 @@ namespace SelСom {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ApplicantsRow AddApplicantsRow(string Surname, string Name, string Patronymic, string Sex, System.DateTime Birth_Date, string Email, string Phone_Number, string Photo, string Status, PassportsRow parentPassportsRowByFK__Applicant__Passp__4D5F7D71, AchievementsRow parentAchievementsRowByFK__Applicant__Achie__4E53A1AA, CertificatesRow parentCertificatesRowByFK__Applicant__Certi__4F47C5E3) {
+            public ApplicantsRow AddApplicantsRow(string Surname, string Name, string Patronymic, string Sex, System.DateTime Birth_Date, string Email, string Phone_Number, string Photo, string Status, PassportsRow parentPassportsRowByFK__Applicant__Passp__29E1370A, AchievementsRow parentAchievementsRowByFK__Applicant__Achie__2AD55B43, CertificatesRow parentCertificatesRowByFK__Applicant__Certi__2BC97F7C) {
                 ApplicantsRow rowApplicantsRow = ((ApplicantsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1214,14 +1214,14 @@ namespace SelСom {
                         null,
                         null,
                         null};
-                if ((parentPassportsRowByFK__Applicant__Passp__4D5F7D71 != null)) {
-                    columnValuesArray[10] = parentPassportsRowByFK__Applicant__Passp__4D5F7D71[0];
+                if ((parentPassportsRowByFK__Applicant__Passp__29E1370A != null)) {
+                    columnValuesArray[10] = parentPassportsRowByFK__Applicant__Passp__29E1370A[0];
                 }
-                if ((parentAchievementsRowByFK__Applicant__Achie__4E53A1AA != null)) {
-                    columnValuesArray[11] = parentAchievementsRowByFK__Applicant__Achie__4E53A1AA[0];
+                if ((parentAchievementsRowByFK__Applicant__Achie__2AD55B43 != null)) {
+                    columnValuesArray[11] = parentAchievementsRowByFK__Applicant__Achie__2AD55B43[0];
                 }
-                if ((parentCertificatesRowByFK__Applicant__Certi__4F47C5E3 != null)) {
-                    columnValuesArray[12] = parentCertificatesRowByFK__Applicant__Certi__4F47C5E3[0];
+                if ((parentCertificatesRowByFK__Applicant__Certi__2BC97F7C != null)) {
+                    columnValuesArray[12] = parentCertificatesRowByFK__Applicant__Certi__2BC97F7C[0];
                 }
                 rowApplicantsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowApplicantsRow);
@@ -2621,271 +2621,6 @@ namespace SelСom {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "EmployeeViewDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SpecialtiesApplicantsViewDataTable : global::System.Data.TypedTableBase<SpecialtiesApplicantsViewRow> {
-            
-            private global::System.Data.DataColumn columnФИО;
-            
-            private global::System.Data.DataColumn columnСпециальность;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewDataTable() {
-                this.TableName = "SpecialtiesApplicantsView";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SpecialtiesApplicantsViewDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected SpecialtiesApplicantsViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn ФИОColumn {
-                get {
-                    return this.columnФИО;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn СпециальностьColumn {
-                get {
-                    return this.columnСпециальность;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewRow this[int index] {
-                get {
-                    return ((SpecialtiesApplicantsViewRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SpecialtiesApplicantsViewRowChangeEventHandler SpecialtiesApplicantsViewRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SpecialtiesApplicantsViewRowChangeEventHandler SpecialtiesApplicantsViewRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SpecialtiesApplicantsViewRowChangeEventHandler SpecialtiesApplicantsViewRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event SpecialtiesApplicantsViewRowChangeEventHandler SpecialtiesApplicantsViewRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddSpecialtiesApplicantsViewRow(SpecialtiesApplicantsViewRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewRow AddSpecialtiesApplicantsViewRow(string ФИО, string Специальность) {
-                SpecialtiesApplicantsViewRow rowSpecialtiesApplicantsViewRow = ((SpecialtiesApplicantsViewRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        ФИО,
-                        Специальность};
-                rowSpecialtiesApplicantsViewRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSpecialtiesApplicantsViewRow);
-                return rowSpecialtiesApplicantsViewRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                SpecialtiesApplicantsViewDataTable cln = ((SpecialtiesApplicantsViewDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SpecialtiesApplicantsViewDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnФИО = base.Columns["ФИО"];
-                this.columnСпециальность = base.Columns["Специальность"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnФИО = new global::System.Data.DataColumn("ФИО", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnФИО);
-                this.columnСпециальность = new global::System.Data.DataColumn("Специальность", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnСпециальность);
-                this.columnФИО.ReadOnly = true;
-                this.columnФИО.MaxLength = 36;
-                this.columnСпециальность.AllowDBNull = false;
-                this.columnСпециальность.MaxLength = 30;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewRow NewSpecialtiesApplicantsViewRow() {
-                return ((SpecialtiesApplicantsViewRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SpecialtiesApplicantsViewRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(SpecialtiesApplicantsViewRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SpecialtiesApplicantsViewRowChanged != null)) {
-                    this.SpecialtiesApplicantsViewRowChanged(this, new SpecialtiesApplicantsViewRowChangeEvent(((SpecialtiesApplicantsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SpecialtiesApplicantsViewRowChanging != null)) {
-                    this.SpecialtiesApplicantsViewRowChanging(this, new SpecialtiesApplicantsViewRowChangeEvent(((SpecialtiesApplicantsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SpecialtiesApplicantsViewRowDeleted != null)) {
-                    this.SpecialtiesApplicantsViewRowDeleted(this, new SpecialtiesApplicantsViewRowChangeEvent(((SpecialtiesApplicantsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SpecialtiesApplicantsViewRowDeleting != null)) {
-                    this.SpecialtiesApplicantsViewRowDeleting(this, new SpecialtiesApplicantsViewRowChangeEvent(((SpecialtiesApplicantsViewRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveSpecialtiesApplicantsViewRow(SpecialtiesApplicantsViewRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet_SelCom ds = new DataSet_SelCom();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SpecialtiesApplicantsViewDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -4814,6 +4549,530 @@ namespace SelСom {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SpecialtisApplicantsViewDataTable : global::System.Data.TypedTableBase<SpecialtisApplicantsViewRow> {
+            
+            private global::System.Data.DataColumn columnКод_Абитуриента;
+            
+            private global::System.Data.DataColumn columnФИО;
+            
+            private global::System.Data.DataColumn columnПол;
+            
+            private global::System.Data.DataColumn columnДата_рождения;
+            
+            private global::System.Data.DataColumn columnКонтактные_данные;
+            
+            private global::System.Data.DataColumn columnСерия_и_номер_паспорта;
+            
+            private global::System.Data.DataColumn columnКод_подразделения;
+            
+            private global::System.Data.DataColumn columnКем_выдан;
+            
+            private global::System.Data.DataColumn columnКогда_выдан;
+            
+            private global::System.Data.DataColumn columnНомер_аттестата;
+            
+            private global::System.Data.DataColumn columnДата_выдачи_аттестата;
+            
+            private global::System.Data.DataColumn columnУчебное_заведение;
+            
+            private global::System.Data.DataColumn columnСредний_балл;
+            
+            private global::System.Data.DataColumn columnЗолотая_медаль_по_ГТО;
+            
+            private global::System.Data.DataColumn columnПобедитель_олимпиады;
+            
+            private global::System.Data.DataColumn columnСтатус;
+            
+            private global::System.Data.DataColumn columnОригинал_сертификата;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewDataTable() {
+                this.TableName = "SpecialtisApplicantsView";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SpecialtisApplicantsViewDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected SpecialtisApplicantsViewDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Код_АбитуриентаColumn {
+                get {
+                    return this.columnКод_Абитуриента;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ФИОColumn {
+                get {
+                    return this.columnФИО;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ПолColumn {
+                get {
+                    return this.columnПол;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Дата_рожденияColumn {
+                get {
+                    return this.columnДата_рождения;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Контактные_данныеColumn {
+                get {
+                    return this.columnКонтактные_данные;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Серия_и_номер_паспортаColumn {
+                get {
+                    return this.columnСерия_и_номер_паспорта;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Код_подразделенияColumn {
+                get {
+                    return this.columnКод_подразделения;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Кем_выданColumn {
+                get {
+                    return this.columnКем_выдан;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Когда_выданColumn {
+                get {
+                    return this.columnКогда_выдан;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Номер_аттестатаColumn {
+                get {
+                    return this.columnНомер_аттестата;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Дата_выдачи_аттестатаColumn {
+                get {
+                    return this.columnДата_выдачи_аттестата;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Учебное_заведениеColumn {
+                get {
+                    return this.columnУчебное_заведение;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Средний_баллColumn {
+                get {
+                    return this.columnСредний_балл;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Золотая_медаль_по_ГТОColumn {
+                get {
+                    return this.columnЗолотая_медаль_по_ГТО;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Победитель_олимпиадыColumn {
+                get {
+                    return this.columnПобедитель_олимпиады;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn СтатусColumn {
+                get {
+                    return this.columnСтатус;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Оригинал_сертификатаColumn {
+                get {
+                    return this.columnОригинал_сертификата;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRow this[int index] {
+                get {
+                    return ((SpecialtisApplicantsViewRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SpecialtisApplicantsViewRowChangeEventHandler SpecialtisApplicantsViewRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SpecialtisApplicantsViewRowChangeEventHandler SpecialtisApplicantsViewRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SpecialtisApplicantsViewRowChangeEventHandler SpecialtisApplicantsViewRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event SpecialtisApplicantsViewRowChangeEventHandler SpecialtisApplicantsViewRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddSpecialtisApplicantsViewRow(SpecialtisApplicantsViewRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRow AddSpecialtisApplicantsViewRow(
+                        int Код_Абитуриента, 
+                        string ФИО, 
+                        string Пол, 
+                        System.DateTime Дата_рождения, 
+                        string Контактные_данные, 
+                        string Серия_и_номер_паспорта, 
+                        string Код_подразделения, 
+                        string Кем_выдан, 
+                        System.DateTime Когда_выдан, 
+                        string Номер_аттестата, 
+                        System.DateTime Дата_выдачи_аттестата, 
+                        string Учебное_заведение, 
+                        decimal Средний_балл, 
+                        bool Золотая_медаль_по_ГТО, 
+                        bool Победитель_олимпиады, 
+                        string Статус, 
+                        bool Оригинал_сертификата) {
+                SpecialtisApplicantsViewRow rowSpecialtisApplicantsViewRow = ((SpecialtisApplicantsViewRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        Код_Абитуриента,
+                        ФИО,
+                        Пол,
+                        Дата_рождения,
+                        Контактные_данные,
+                        Серия_и_номер_паспорта,
+                        Код_подразделения,
+                        Кем_выдан,
+                        Когда_выдан,
+                        Номер_аттестата,
+                        Дата_выдачи_аттестата,
+                        Учебное_заведение,
+                        Средний_балл,
+                        Золотая_медаль_по_ГТО,
+                        Победитель_олимпиады,
+                        Статус,
+                        Оригинал_сертификата};
+                rowSpecialtisApplicantsViewRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSpecialtisApplicantsViewRow);
+                return rowSpecialtisApplicantsViewRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRow FindByКод_Абитуриента(int Код_Абитуриента) {
+                return ((SpecialtisApplicantsViewRow)(this.Rows.Find(new object[] {
+                            Код_Абитуриента})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SpecialtisApplicantsViewDataTable cln = ((SpecialtisApplicantsViewDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SpecialtisApplicantsViewDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnКод_Абитуриента = base.Columns["Код Абитуриента"];
+                this.columnФИО = base.Columns["ФИО"];
+                this.columnПол = base.Columns["Пол"];
+                this.columnДата_рождения = base.Columns["Дата рождения"];
+                this.columnКонтактные_данные = base.Columns["Контактные данные"];
+                this.columnСерия_и_номер_паспорта = base.Columns["Серия и номер паспорта"];
+                this.columnКод_подразделения = base.Columns["Код подразделения"];
+                this.columnКем_выдан = base.Columns["Кем выдан"];
+                this.columnКогда_выдан = base.Columns["Когда выдан"];
+                this.columnНомер_аттестата = base.Columns["Номер аттестата"];
+                this.columnДата_выдачи_аттестата = base.Columns["Дата выдачи аттестата"];
+                this.columnУчебное_заведение = base.Columns["Учебное заведение"];
+                this.columnСредний_балл = base.Columns["Средний балл"];
+                this.columnЗолотая_медаль_по_ГТО = base.Columns["Золотая медаль по ГТО"];
+                this.columnПобедитель_олимпиады = base.Columns["Победитель олимпиады"];
+                this.columnСтатус = base.Columns["Статус"];
+                this.columnОригинал_сертификата = base.Columns["Оригинал сертификата"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnКод_Абитуриента = new global::System.Data.DataColumn("Код Абитуриента", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКод_Абитуриента);
+                this.columnФИО = new global::System.Data.DataColumn("ФИО", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnФИО);
+                this.columnПол = new global::System.Data.DataColumn("Пол", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПол);
+                this.columnДата_рождения = new global::System.Data.DataColumn("Дата рождения", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата_рождения);
+                this.columnКонтактные_данные = new global::System.Data.DataColumn("Контактные данные", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКонтактные_данные);
+                this.columnСерия_и_номер_паспорта = new global::System.Data.DataColumn("Серия и номер паспорта", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСерия_и_номер_паспорта);
+                this.columnКод_подразделения = new global::System.Data.DataColumn("Код подразделения", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКод_подразделения);
+                this.columnКем_выдан = new global::System.Data.DataColumn("Кем выдан", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКем_выдан);
+                this.columnКогда_выдан = new global::System.Data.DataColumn("Когда выдан", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnКогда_выдан);
+                this.columnНомер_аттестата = new global::System.Data.DataColumn("Номер аттестата", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnНомер_аттестата);
+                this.columnДата_выдачи_аттестата = new global::System.Data.DataColumn("Дата выдачи аттестата", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnДата_выдачи_аттестата);
+                this.columnУчебное_заведение = new global::System.Data.DataColumn("Учебное заведение", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnУчебное_заведение);
+                this.columnСредний_балл = new global::System.Data.DataColumn("Средний балл", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСредний_балл);
+                this.columnЗолотая_медаль_по_ГТО = new global::System.Data.DataColumn("Золотая медаль по ГТО", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnЗолотая_медаль_по_ГТО);
+                this.columnПобедитель_олимпиады = new global::System.Data.DataColumn("Победитель олимпиады", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnПобедитель_олимпиады);
+                this.columnСтатус = new global::System.Data.DataColumn("Статус", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnСтатус);
+                this.columnОригинал_сертификата = new global::System.Data.DataColumn("Оригинал сертификата", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnОригинал_сертификата);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnКод_Абитуриента}, true));
+                this.columnКод_Абитуриента.AllowDBNull = false;
+                this.columnКод_Абитуриента.Unique = true;
+                this.columnФИО.ReadOnly = true;
+                this.columnФИО.MaxLength = 36;
+                this.columnПол.AllowDBNull = false;
+                this.columnПол.MaxLength = 1;
+                this.columnДата_рождения.AllowDBNull = false;
+                this.columnКонтактные_данные.ReadOnly = true;
+                this.columnКонтактные_данные.MaxLength = 307;
+                this.columnСерия_и_номер_паспорта.ReadOnly = true;
+                this.columnСерия_и_номер_паспорта.MaxLength = 11;
+                this.columnКод_подразделения.AllowDBNull = false;
+                this.columnКод_подразделения.MaxLength = 7;
+                this.columnКем_выдан.AllowDBNull = false;
+                this.columnКем_выдан.MaxLength = 255;
+                this.columnКогда_выдан.AllowDBNull = false;
+                this.columnНомер_аттестата.AllowDBNull = false;
+                this.columnНомер_аттестата.MaxLength = 14;
+                this.columnДата_выдачи_аттестата.AllowDBNull = false;
+                this.columnУчебное_заведение.AllowDBNull = false;
+                this.columnУчебное_заведение.MaxLength = 255;
+                this.columnСредний_балл.AllowDBNull = false;
+                this.columnЗолотая_медаль_по_ГТО.AllowDBNull = false;
+                this.columnПобедитель_олимпиады.AllowDBNull = false;
+                this.columnСтатус.AllowDBNull = false;
+                this.columnСтатус.MaxLength = 50;
+                this.columnОригинал_сертификата.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRow NewSpecialtisApplicantsViewRow() {
+                return ((SpecialtisApplicantsViewRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SpecialtisApplicantsViewRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SpecialtisApplicantsViewRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SpecialtisApplicantsViewRowChanged != null)) {
+                    this.SpecialtisApplicantsViewRowChanged(this, new SpecialtisApplicantsViewRowChangeEvent(((SpecialtisApplicantsViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SpecialtisApplicantsViewRowChanging != null)) {
+                    this.SpecialtisApplicantsViewRowChanging(this, new SpecialtisApplicantsViewRowChangeEvent(((SpecialtisApplicantsViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SpecialtisApplicantsViewRowDeleted != null)) {
+                    this.SpecialtisApplicantsViewRowDeleted(this, new SpecialtisApplicantsViewRowChangeEvent(((SpecialtisApplicantsViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SpecialtisApplicantsViewRowDeleting != null)) {
+                    this.SpecialtisApplicantsViewRowDeleting(this, new SpecialtisApplicantsViewRowChangeEvent(((SpecialtisApplicantsViewRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveSpecialtisApplicantsViewRow(SpecialtisApplicantsViewRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet_SelCom ds = new DataSet_SelCom();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SpecialtisApplicantsViewDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class AchievementsRow : global::System.Data.DataRow {
@@ -4863,11 +5122,11 @@ namespace SelСom {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ApplicantsRow[] GetApplicantsRows() {
-                if ((this.Table.ChildRelations["FK__Applicant__Achie__4E53A1AA"] == null)) {
+                if ((this.Table.ChildRelations["FK__Applicant__Achie__2AD55B43"] == null)) {
                     return new ApplicantsRow[0];
                 }
                 else {
-                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Achie__4E53A1AA"])));
+                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Achie__2AD55B43"])));
                 }
             }
         }
@@ -5038,10 +5297,10 @@ namespace SelСom {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public AchievementsRow AchievementsRow {
                 get {
-                    return ((AchievementsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Achie__4E53A1AA"])));
+                    return ((AchievementsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Achie__2AD55B43"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Achie__4E53A1AA"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Achie__2AD55B43"]);
                 }
             }
             
@@ -5049,10 +5308,10 @@ namespace SelСom {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CertificatesRow CertificatesRow {
                 get {
-                    return ((CertificatesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Certi__4F47C5E3"])));
+                    return ((CertificatesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Certi__2BC97F7C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Certi__4F47C5E3"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Certi__2BC97F7C"]);
                 }
             }
             
@@ -5060,10 +5319,10 @@ namespace SelСom {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PassportsRow PassportsRow {
                 get {
-                    return ((PassportsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Passp__4D5F7D71"])));
+                    return ((PassportsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Passp__29E1370A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Passp__4D5F7D71"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Passp__29E1370A"]);
                 }
             }
             
@@ -5386,60 +5645,6 @@ namespace SelСom {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SpecialtiesApplicantsViewRow : global::System.Data.DataRow {
-            
-            private SpecialtiesApplicantsViewDataTable tableSpecialtiesApplicantsView;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal SpecialtiesApplicantsViewRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSpecialtiesApplicantsView = ((SpecialtiesApplicantsViewDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string ФИО {
-                get {
-                    try {
-                        return ((string)(this[this.tableSpecialtiesApplicantsView.ФИОColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ФИО\' в таблице \'SpecialtiesApplicantsView\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSpecialtiesApplicantsView.ФИОColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string Специальность {
-                get {
-                    return ((string)(this[this.tableSpecialtiesApplicantsView.СпециальностьColumn]));
-                }
-                set {
-                    this[this.tableSpecialtiesApplicantsView.СпециальностьColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsФИОNull() {
-                return this.IsNull(this.tableSpecialtiesApplicantsView.ФИОColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetФИОNull() {
-                this[this.tableSpecialtiesApplicantsView.ФИОColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class SpecialtiesRow : global::System.Data.DataRow {
             
             private SpecialtiesDataTable tableSpecialties;
@@ -5567,23 +5772,23 @@ namespace SelСom {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ApplicantsRow ApplicantsRow {
-                get {
-                    return ((ApplicantsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Appli__7E02B4CC"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Appli__7E02B4CC"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public SpecialtiesRow SpecialtiesRow {
                 get {
                     return ((SpecialtiesRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Speci__7EF6D905"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Speci__7EF6D905"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ApplicantsRow ApplicantsRow {
+                get {
+                    return ((ApplicantsRow)(this.GetParentRow(this.Table.ParentRelations["FK__Applicant__Appli__7E02B4CC"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__Applicant__Appli__7E02B4CC"]);
                 }
             }
         }
@@ -5693,11 +5898,11 @@ namespace SelСom {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ApplicantsRow[] GetApplicantsRows() {
-                if ((this.Table.ChildRelations["FK__Applicant__Certi__4F47C5E3"] == null)) {
+                if ((this.Table.ChildRelations["FK__Applicant__Certi__2BC97F7C"] == null)) {
                     return new ApplicantsRow[0];
                 }
                 else {
-                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Certi__4F47C5E3"])));
+                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Certi__2BC97F7C"])));
                 }
             }
         }
@@ -5807,11 +6012,11 @@ namespace SelСom {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ApplicantsRow[] GetApplicantsRows() {
-                if ((this.Table.ChildRelations["FK__Applicant__Passp__4D5F7D71"] == null)) {
+                if ((this.Table.ChildRelations["FK__Applicant__Passp__29E1370A"] == null)) {
                     return new ApplicantsRow[0];
                 }
                 else {
-                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Passp__4D5F7D71"])));
+                    return ((ApplicantsRow[])(base.GetChildRows(this.Table.ChildRelations["FK__Applicant__Passp__29E1370A"])));
                 }
             }
         }
@@ -6072,6 +6277,261 @@ namespace SelСom {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SpecialtisApplicantsViewRow : global::System.Data.DataRow {
+            
+            private SpecialtisApplicantsViewDataTable tableSpecialtisApplicantsView;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal SpecialtisApplicantsViewRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSpecialtisApplicantsView = ((SpecialtisApplicantsViewDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Код_Абитуриента {
+                get {
+                    return ((int)(this[this.tableSpecialtisApplicantsView.Код_АбитуриентаColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Код_АбитуриентаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string ФИО {
+                get {
+                    try {
+                        return ((string)(this[this.tableSpecialtisApplicantsView.ФИОColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'ФИО\' в таблице \'SpecialtisApplicantsView\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.ФИОColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Пол {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.ПолColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.ПолColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Дата_рождения {
+                get {
+                    return ((global::System.DateTime)(this[this.tableSpecialtisApplicantsView.Дата_рожденияColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Дата_рожденияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Контактные_данные {
+                get {
+                    try {
+                        return ((string)(this[this.tableSpecialtisApplicantsView.Контактные_данныеColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Контактные данные\' в таблице \'SpecialtisApplicantsView\' рав" +
+                                "но DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Контактные_данныеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Серия_и_номер_паспорта {
+                get {
+                    try {
+                        return ((string)(this[this.tableSpecialtisApplicantsView.Серия_и_номер_паспортаColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Серия и номер паспорта\' в таблице \'SpecialtisApplicantsView" +
+                                "\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Серия_и_номер_паспортаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Код_подразделения {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.Код_подразделенияColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Код_подразделенияColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Кем_выдан {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.Кем_выданColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Кем_выданColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Когда_выдан {
+                get {
+                    return ((global::System.DateTime)(this[this.tableSpecialtisApplicantsView.Когда_выданColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Когда_выданColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Номер_аттестата {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.Номер_аттестатаColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Номер_аттестатаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.DateTime Дата_выдачи_аттестата {
+                get {
+                    return ((global::System.DateTime)(this[this.tableSpecialtisApplicantsView.Дата_выдачи_аттестатаColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Дата_выдачи_аттестатаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Учебное_заведение {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.Учебное_заведениеColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Учебное_заведениеColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public decimal Средний_балл {
+                get {
+                    return ((decimal)(this[this.tableSpecialtisApplicantsView.Средний_баллColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Средний_баллColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Золотая_медаль_по_ГТО {
+                get {
+                    return ((bool)(this[this.tableSpecialtisApplicantsView.Золотая_медаль_по_ГТОColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Золотая_медаль_по_ГТОColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Победитель_олимпиады {
+                get {
+                    return ((bool)(this[this.tableSpecialtisApplicantsView.Победитель_олимпиадыColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Победитель_олимпиадыColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Статус {
+                get {
+                    return ((string)(this[this.tableSpecialtisApplicantsView.СтатусColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.СтатусColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Оригинал_сертификата {
+                get {
+                    return ((bool)(this[this.tableSpecialtisApplicantsView.Оригинал_сертификатаColumn]));
+                }
+                set {
+                    this[this.tableSpecialtisApplicantsView.Оригинал_сертификатаColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsФИОNull() {
+                return this.IsNull(this.tableSpecialtisApplicantsView.ФИОColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetФИОNull() {
+                this[this.tableSpecialtisApplicantsView.ФИОColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsКонтактные_данныеNull() {
+                return this.IsNull(this.tableSpecialtisApplicantsView.Контактные_данныеColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetКонтактные_данныеNull() {
+                this[this.tableSpecialtisApplicantsView.Контактные_данныеColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsСерия_и_номер_паспортаNull() {
+                return this.IsNull(this.tableSpecialtisApplicantsView.Серия_и_номер_паспортаColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetСерия_и_номер_паспортаNull() {
+                this[this.tableSpecialtisApplicantsView.Серия_и_номер_паспортаColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -6279,40 +6739,6 @@ namespace SelСom {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class SpecialtiesApplicantsViewRowChangeEvent : global::System.EventArgs {
-            
-            private SpecialtiesApplicantsViewRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewRowChangeEvent(SpecialtiesApplicantsViewRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public SpecialtiesApplicantsViewRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public class SpecialtiesRowChangeEvent : global::System.EventArgs {
             
             private SpecialtiesRow eventRow;
@@ -6465,6 +6891,40 @@ namespace SelСom {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ApplicantsViewRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class SpecialtisApplicantsViewRowChangeEvent : global::System.EventArgs {
+            
+            private SpecialtisApplicantsViewRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRowChangeEvent(SpecialtisApplicantsViewRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public SpecialtisApplicantsViewRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -6959,71 +7419,6 @@ SELECT ID_Achievement, Gold_GTO, Olympic_Medalist FROM Achievements WHERE (ID_Ac
             tableMapping.ColumnMappings.Add("Achievement_ID", "Achievement_ID");
             tableMapping.ColumnMappings.Add("Certificate_ID", "Certificate_ID");
             this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Applicants] WHERE (([ID_Applicant] = @Original_ID_Applicant) AND ([Surname] = @Original_Surname) AND ([Name] = @Original_Name) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([Sex] = @Original_Sex) AND ([Birth_Date] = @Original_Birth_Date) AND ([Email] = @Original_Email) AND ([Phone_Number] = @Original_Phone_Number) AND ([Status] = @Original_Status) AND ([Passport_ID] = @Original_Passport_ID) AND ([Achievement_ID] = @Original_Achievement_ID) AND ([Certificate_ID] = @Original_Certificate_ID))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Applicant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Applicant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Patronymic", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sex", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birth_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birth_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Passport_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Achievement_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Achievement_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Certificate_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Certificate_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Applicants] ([Surname], [Name], [Patronymic], [Sex], [Birth_Date], [Email], [Phone_Number], [Photo], [Status], [Passport_ID], [Achievement_ID], [Certificate_ID]) VALUES (@Surname, @Name, @Patronymic, @Sex, @Birth_Date, @Email, @Phone_Number, @Photo, @Status, @Passport_ID, @Achievement_ID, @Certificate_ID);
-SELECT ID_Applicant, Surname, Name, Patronymic, Sex, Birth_Date, Email, Phone_Number, Photo, Status, Passport_ID, Achievement_ID, Certificate_ID FROM Applicants WHERE (ID_Applicant = SCOPE_IDENTITY())";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sex", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birth_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birth_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Passport_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Achievement_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Achievement_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Certificate_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Certificate_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Applicants] SET [Surname] = @Surname, [Name] = @Name, [Patronymic] = @Patronymic, [Sex] = @Sex, [Birth_Date] = @Birth_Date, [Email] = @Email, [Phone_Number] = @Phone_Number, [Photo] = @Photo, [Status] = @Status, [Passport_ID] = @Passport_ID, [Achievement_ID] = @Achievement_ID, [Certificate_ID] = @Certificate_ID WHERE (([ID_Applicant] = @Original_ID_Applicant) AND ([Surname] = @Original_Surname) AND ([Name] = @Original_Name) AND ((@IsNull_Patronymic = 1 AND [Patronymic] IS NULL) OR ([Patronymic] = @Original_Patronymic)) AND ([Sex] = @Original_Sex) AND ([Birth_Date] = @Original_Birth_Date) AND ([Email] = @Original_Email) AND ([Phone_Number] = @Original_Phone_Number) AND ([Status] = @Original_Status) AND ([Passport_ID] = @Original_Passport_ID) AND ([Achievement_ID] = @Original_Achievement_ID) AND ([Certificate_ID] = @Original_Certificate_ID));
-SELECT ID_Applicant, Surname, Name, Patronymic, Sex, Birth_Date, Email, Phone_Number, Photo, Status, Passport_ID, Achievement_ID, Certificate_ID FROM Applicants WHERE (ID_Applicant = @ID_Applicant)";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sex", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Birth_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birth_Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Photo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Photo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Passport_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Achievement_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Achievement_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Certificate_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Certificate_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Applicant", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Applicant", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Surname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Surname", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Patronymic", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Patronymic", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Patronymic", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Sex", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sex", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Birth_Date", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Birth_Date", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Email", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Phone_Number", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Phone_Number", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Status", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Status", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Passport_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Passport_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Achievement_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Achievement_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Certificate_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Certificate_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Applicant", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Applicant", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7126,358 +7521,6 @@ SELECT ID_Applicant, Surname, Name, Patronymic, Sex, Birth_Date, Email, Phone_Nu
             DataSet_SelCom.ApplicantsDataTable dataTable = new DataSet_SelCom.ApplicantsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet_SelCom.ApplicantsDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet_SelCom dataSet) {
-            return this.Adapter.Update(dataSet, "Applicants");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID_Applicant, string Original_Surname, string Original_Name, string Original_Patronymic, string Original_Sex, System.DateTime Original_Birth_Date, string Original_Email, string Original_Phone_Number, string Original_Status, int Original_Passport_ID, int Original_Achievement_ID, int Original_Certificate_ID) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Applicant));
-            if ((Original_Surname == null)) {
-                throw new global::System.ArgumentNullException("Original_Surname");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Surname));
-            }
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Name));
-            }
-            if ((Original_Patronymic == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Patronymic));
-            }
-            if ((Original_Sex == null)) {
-                throw new global::System.ArgumentNullException("Original_Sex");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Sex));
-            }
-            this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_Birth_Date));
-            if ((Original_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_Email");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[7].Value = ((string)(Original_Email));
-            }
-            if ((Original_Phone_Number == null)) {
-                throw new global::System.ArgumentNullException("Original_Phone_Number");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Phone_Number));
-            }
-            if ((Original_Status == null)) {
-                throw new global::System.ArgumentNullException("Original_Status");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[9].Value = ((string)(Original_Status));
-            }
-            this.Adapter.DeleteCommand.Parameters[10].Value = ((int)(Original_Passport_ID));
-            this.Adapter.DeleteCommand.Parameters[11].Value = ((int)(Original_Achievement_ID));
-            this.Adapter.DeleteCommand.Parameters[12].Value = ((int)(Original_Certificate_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Surname, string Name, string Patronymic, string Sex, System.DateTime Birth_Date, string Email, string Phone_Number, string Photo, string Status, int Passport_ID, int Achievement_ID, int Certificate_ID) {
-            if ((Surname == null)) {
-                throw new global::System.ArgumentNullException("Surname");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Surname));
-            }
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name));
-            }
-            if ((Patronymic == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Patronymic));
-            }
-            if ((Sex == null)) {
-                throw new global::System.ArgumentNullException("Sex");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Sex));
-            }
-            this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(Birth_Date));
-            if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(Email));
-            }
-            if ((Phone_Number == null)) {
-                throw new global::System.ArgumentNullException("Phone_Number");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Phone_Number));
-            }
-            if ((Photo == null)) {
-                throw new global::System.ArgumentNullException("Photo");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(Photo));
-            }
-            if ((Status == null)) {
-                throw new global::System.ArgumentNullException("Status");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((string)(Status));
-            }
-            this.Adapter.InsertCommand.Parameters[9].Value = ((int)(Passport_ID));
-            this.Adapter.InsertCommand.Parameters[10].Value = ((int)(Achievement_ID));
-            this.Adapter.InsertCommand.Parameters[11].Value = ((int)(Certificate_ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Surname, 
-                    string Name, 
-                    string Patronymic, 
-                    string Sex, 
-                    System.DateTime Birth_Date, 
-                    string Email, 
-                    string Phone_Number, 
-                    string Photo, 
-                    string Status, 
-                    int Passport_ID, 
-                    int Achievement_ID, 
-                    int Certificate_ID, 
-                    int Original_ID_Applicant, 
-                    string Original_Surname, 
-                    string Original_Name, 
-                    string Original_Patronymic, 
-                    string Original_Sex, 
-                    System.DateTime Original_Birth_Date, 
-                    string Original_Email, 
-                    string Original_Phone_Number, 
-                    string Original_Status, 
-                    int Original_Passport_ID, 
-                    int Original_Achievement_ID, 
-                    int Original_Certificate_ID, 
-                    int ID_Applicant) {
-            if ((Surname == null)) {
-                throw new global::System.ArgumentNullException("Surname");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Surname));
-            }
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name));
-            }
-            if ((Patronymic == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Patronymic));
-            }
-            if ((Sex == null)) {
-                throw new global::System.ArgumentNullException("Sex");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Sex));
-            }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.DateTime)(Birth_Date));
-            if ((Email == null)) {
-                throw new global::System.ArgumentNullException("Email");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Email));
-            }
-            if ((Phone_Number == null)) {
-                throw new global::System.ArgumentNullException("Phone_Number");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Phone_Number));
-            }
-            if ((Photo == null)) {
-                throw new global::System.ArgumentNullException("Photo");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Photo));
-            }
-            if ((Status == null)) {
-                throw new global::System.ArgumentNullException("Status");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Status));
-            }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Passport_ID));
-            this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Achievement_ID));
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Certificate_ID));
-            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(Original_ID_Applicant));
-            if ((Original_Surname == null)) {
-                throw new global::System.ArgumentNullException("Original_Surname");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Surname));
-            }
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_Name));
-            }
-            if ((Original_Patronymic == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_Patronymic));
-            }
-            if ((Original_Sex == null)) {
-                throw new global::System.ArgumentNullException("Original_Sex");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_Sex));
-            }
-            this.Adapter.UpdateCommand.Parameters[18].Value = ((System.DateTime)(Original_Birth_Date));
-            if ((Original_Email == null)) {
-                throw new global::System.ArgumentNullException("Original_Email");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_Email));
-            }
-            if ((Original_Phone_Number == null)) {
-                throw new global::System.ArgumentNullException("Original_Phone_Number");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[20].Value = ((string)(Original_Phone_Number));
-            }
-            if ((Original_Status == null)) {
-                throw new global::System.ArgumentNullException("Original_Status");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[21].Value = ((string)(Original_Status));
-            }
-            this.Adapter.UpdateCommand.Parameters[22].Value = ((int)(Original_Passport_ID));
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(Original_Achievement_ID));
-            this.Adapter.UpdateCommand.Parameters[24].Value = ((int)(Original_Certificate_ID));
-            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(ID_Applicant));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(
-                    string Surname, 
-                    string Name, 
-                    string Patronymic, 
-                    string Sex, 
-                    System.DateTime Birth_Date, 
-                    string Email, 
-                    string Phone_Number, 
-                    string Photo, 
-                    string Status, 
-                    int Passport_ID, 
-                    int Achievement_ID, 
-                    int Certificate_ID, 
-                    int Original_ID_Applicant, 
-                    string Original_Surname, 
-                    string Original_Name, 
-                    string Original_Patronymic, 
-                    string Original_Sex, 
-                    System.DateTime Original_Birth_Date, 
-                    string Original_Email, 
-                    string Original_Phone_Number, 
-                    string Original_Status, 
-                    int Original_Passport_ID, 
-                    int Original_Achievement_ID, 
-                    int Original_Certificate_ID) {
-            return this.Update(Surname, Name, Patronymic, Sex, Birth_Date, Email, Phone_Number, Photo, Status, Passport_ID, Achievement_ID, Certificate_ID, Original_ID_Applicant, Original_Surname, Original_Name, Original_Patronymic, Original_Sex, Original_Birth_Date, Original_Email, Original_Phone_Number, Original_Status, Original_Passport_ID, Original_Achievement_ID, Original_Certificate_ID, Original_ID_Applicant);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8793,174 +8836,6 @@ SELECT ID_Employee, Surname, Name, Patronymic, Login, Password, Role_ID FROM Emp
         public virtual DataSet_SelCom.EmployeeViewDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             DataSet_SelCom.EmployeeViewDataTable dataTable = new DataSet_SelCom.EmployeeViewDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SpecialtiesApplicantsViewTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public SpecialtiesApplicantsViewTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SpecialtiesApplicantsView";
-            tableMapping.ColumnMappings.Add("ФИО", "ФИО");
-            tableMapping.ColumnMappings.Add("Специальность", "Специальность");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::SelСom.Properties.Settings.Default.SelComDBConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ФИО, Специальность FROM dbo.SpecialtiesApplicantsView";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet_SelCom.SpecialtiesApplicantsViewDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet_SelCom.SpecialtiesApplicantsViewDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet_SelCom.SpecialtiesApplicantsViewDataTable dataTable = new DataSet_SelCom.SpecialtiesApplicantsViewDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10862,11 +10737,15 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT [Код Абитуриента], ФИО, Пол, [Дата рождения], [Контактные данные], [Серия и номер паспорта], [Код подразделения], [Кем выдан], [Когда выдан], [Номер аттестата], [Дата выдачи аттестата], [Учебное заведение], [Средний балл], [Золотая медаль по ГТО], [Победитель олимпиады], Статус, [Оригинал сертификата] FROM dbo.ApplicantsView";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT [Дата выдачи аттестата], [Дата рождения], [Золотая медаль по ГТО], [Кем выдан], [Когда выдан], [Код Абитуриента], [Код подразделения], [Контактные данные], [Номер аттестата], [Оригинал сертификата], [Победитель олимпиады], Пол, [Серия и номер паспорта], [Средний балл], Статус, [Учебное заведение], ФИО FROM SpecialtisApplicantsView WHERE (ФИО LIKE [%.%])";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10892,6 +10771,226 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillAll(DataSet_SelCom.ApplicantsViewDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual DataSet_SelCom.ApplicantsViewDataTable GetDataBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            DataSet_SelCom.ApplicantsViewDataTable dataTable = new DataSet_SelCom.ApplicantsViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SpecialtisApplicantsViewTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public SpecialtisApplicantsViewTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SpecialtisApplicantsView";
+            tableMapping.ColumnMappings.Add("Код Абитуриента", "Код Абитуриента");
+            tableMapping.ColumnMappings.Add("ФИО", "ФИО");
+            tableMapping.ColumnMappings.Add("Пол", "Пол");
+            tableMapping.ColumnMappings.Add("Дата рождения", "Дата рождения");
+            tableMapping.ColumnMappings.Add("Контактные данные", "Контактные данные");
+            tableMapping.ColumnMappings.Add("Серия и номер паспорта", "Серия и номер паспорта");
+            tableMapping.ColumnMappings.Add("Код подразделения", "Код подразделения");
+            tableMapping.ColumnMappings.Add("Кем выдан", "Кем выдан");
+            tableMapping.ColumnMappings.Add("Когда выдан", "Когда выдан");
+            tableMapping.ColumnMappings.Add("Номер аттестата", "Номер аттестата");
+            tableMapping.ColumnMappings.Add("Дата выдачи аттестата", "Дата выдачи аттестата");
+            tableMapping.ColumnMappings.Add("Учебное заведение", "Учебное заведение");
+            tableMapping.ColumnMappings.Add("Средний балл", "Средний балл");
+            tableMapping.ColumnMappings.Add("Золотая медаль по ГТО", "Золотая медаль по ГТО");
+            tableMapping.ColumnMappings.Add("Победитель олимпиады", "Победитель олимпиады");
+            tableMapping.ColumnMappings.Add("Статус", "Статус");
+            tableMapping.ColumnMappings.Add("Оригинал сертификата", "Оригинал сертификата");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::SelСom.Properties.Settings.Default.SelComDBConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"select [Код Абитуриента],[ФИО],[Пол],[Дата рождения],[Контактные данные],[Серия и номер паспорта],[Код подразделения],[Кем выдан],[Когда выдан],[Номер аттестата],[Дата выдачи аттестата],[Учебное заведение],[Средний балл],[Золотая медаль по ГТО],[Победитель олимпиады],[Статус],[Оригинал сертификата] from [dbo].[SpecialtisApplicantsView] where [Код Абитуриента] = [Applicant_ID] and [Speciality_ID] = @Specialties";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Specialties", global::System.Data.SqlDbType.VarChar, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Speciality_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSet_SelCom.SpecialtisApplicantsViewDataTable dataTable, string Specialties) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Specialties == null)) {
+                throw new global::System.ArgumentNullException("Specialties");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Specialties));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSet_SelCom.SpecialtisApplicantsViewDataTable GetData(string Specialties) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Specialties == null)) {
+                throw new global::System.ArgumentNullException("Specialties");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Specialties));
+            }
+            DataSet_SelCom.SpecialtisApplicantsViewDataTable dataTable = new DataSet_SelCom.SpecialtisApplicantsViewDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
     }
     
     /// <summary>
@@ -10907,8 +11006,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
         private UpdateOrderOption _updateOrder;
         
         private AchievementsTableAdapter _achievementsTableAdapter;
-        
-        private ApplicantsTableAdapter _applicantsTableAdapter;
         
         private EmployeesTableAdapter _employeesTableAdapter;
         
@@ -10948,20 +11045,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
             }
             set {
                 this._achievementsTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public ApplicantsTableAdapter ApplicantsTableAdapter {
-            get {
-                return this._applicantsTableAdapter;
-            }
-            set {
-                this._applicantsTableAdapter = value;
             }
         }
         
@@ -11072,10 +11155,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                             && (this._achievementsTableAdapter.Connection != null))) {
                     return this._achievementsTableAdapter.Connection;
                 }
-                if (((this._applicantsTableAdapter != null) 
-                            && (this._applicantsTableAdapter.Connection != null))) {
-                    return this._applicantsTableAdapter.Connection;
-                }
                 if (((this._employeesTableAdapter != null) 
                             && (this._employeesTableAdapter.Connection != null))) {
                     return this._employeesTableAdapter.Connection;
@@ -11114,9 +11193,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
             get {
                 int count = 0;
                 if ((this._achievementsTableAdapter != null)) {
-                    count = (count + 1);
-                }
-                if ((this._applicantsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._employeesTableAdapter != null)) {
@@ -11172,15 +11248,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._passportsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._applicantsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Applicants.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._applicantsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -11251,14 +11318,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._passportsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._applicantsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Applicants.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._applicantsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -11336,14 +11395,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._applicantsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Applicants.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._applicantsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._passportsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Passports.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -11409,11 +11460,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
             }
             if (((this._achievementsTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._achievementsTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
-            }
-            if (((this._applicantsTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._applicantsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -11486,15 +11532,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                     if (this._achievementsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._achievementsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._achievementsTableAdapter.Adapter);
-                    }
-                }
-                if ((this._applicantsTableAdapter != null)) {
-                    revertConnections.Add(this._applicantsTableAdapter, this._applicantsTableAdapter.Connection);
-                    this._applicantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._applicantsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._applicantsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._applicantsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._applicantsTableAdapter.Adapter);
                     }
                 }
                 if ((this._employeesTableAdapter != null)) {
@@ -11612,10 +11649,6 @@ SELECT ID_Passport, Series, Number, Issue_Date_Passport, Division_Code, Issued, 
                 if ((this._achievementsTableAdapter != null)) {
                     this._achievementsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._achievementsTableAdapter]));
                     this._achievementsTableAdapter.Transaction = null;
-                }
-                if ((this._applicantsTableAdapter != null)) {
-                    this._applicantsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._applicantsTableAdapter]));
-                    this._applicantsTableAdapter.Transaction = null;
                 }
                 if ((this._employeesTableAdapter != null)) {
                     this._employeesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._employeesTableAdapter]));

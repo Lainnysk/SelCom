@@ -148,9 +148,9 @@
                 <Image x:Name="SertScanSecond" HorizontalAlignment="Left" Source="/PhotoScan/sertificate2.jpg" Height="92" Margin="796,137,0,0" VerticalAlignment="Top" Width="128"/>
                 <Button x:Name="LoadSertScan2" Content="Скан приложения аттестата" HorizontalAlignment="Left" Margin="781,232,0,0" VerticalAlignment="Top" Width="158" Height="18" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
                 <CheckBox x:Name="SertificateOrig" Content="Оригинал аттестата" HorizontalAlignment="Left" Margin="959,54,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,81,0,0" VerticalAlignment="Top" Width="128" FontSize="14" Height="18"/>
+                <ComboBox x:Name="StatusBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,81,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18"/>
                 <TextBlock HorizontalAlignment="Left" Margin="1004,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Статус "/></TextBlock>
-                <ComboBox x:Name="ApplicantSpecBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,12,0,0" VerticalAlignment="Top" Width="128" FontSize="14" Height="18">
+                <ComboBox x:Name="ApplicantSpecBox" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="959,12,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18">
                     <ComboBoxItem>
                         <StackPanel>
                             <CheckBox Name="chB090207" Content="09.02.07" IsChecked="False"></CheckBox>
@@ -175,7 +175,7 @@
         <Button x:Name="AddBtn" Content="Добавить" HorizontalAlignment="Left" Margin="1144,50,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="AddBtn_Click" BorderBrush="#FF172A3B" Background="#9abf88" FontWeight="Normal"/>
         <Button x:Name="EditBtn" Content="Изменить" HorizontalAlignment="Left" Margin="1144,97,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="EditBtn_Click" BorderBrush="#FF172A3B" Background="#FFE4BF80" FontWeight="Normal"/>
         <Button x:Name="DeleteBtn" Content="Удалить" HorizontalAlignment="Left" Margin="1144,144,0,0" VerticalAlignment="Top" Width="58" Height="36" FontFamily="/Antiques;component/Font/#Roboto Light" Click="DeleteBtn_Click" BorderBrush="#FF172A3B" Background="#FFE3727A" FontWeight="Normal"/>
-        <ComboBox x:Name="StatusBox_Copy" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="26,260,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18"/>
+        <ComboBox x:Name="Specialties" HorizontalAlignment="Left" BorderBrush="#FF172A3B" Margin="26,260,0,0" VerticalAlignment="Top" Width="128" FontSize="10" Height="18" SelectionChanged="Specialties_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="48,278,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="/Antiques;component/Font/#Roboto Light"><Run Language="ru-ru" Text="Специальность"/></TextBlock>
     </Grid>
 </Window>

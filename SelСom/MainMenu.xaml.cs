@@ -33,6 +33,12 @@ namespace SelСom
             StatusBox.Items.Add("Зачислен");
             StatusBox.Items.Add("Отклонен");
 
+            Specialties.Items.Add("all");
+            Specialties.Items.Add("09.02.07");
+            Specialties.Items.Add("09.02.01");
+            Specialties.Items.Add("09.02.06");
+            Specialties.SelectedValue = "all";
+
             UpdateApplicants();
             UpdatePassports();
             UpdateCertificates();
@@ -41,11 +47,18 @@ namespace SelСom
 
         private void UpdateApplicants()
         {
-            ApplicantsViewTableAdapter adapter = new ApplicantsViewTableAdapter();
-            DataSet_SelCom.ApplicantsViewDataTable table = new DataSet_SelCom.ApplicantsViewDataTable();
-            adapter.Fill(table);
+            try
+            {
+                //ApplicantsViewTableAdapter adapter = new ApplicantsViewTableAdapter();
+                //DataSet_SelCom.ApplicantsViewDataTable table = new DataSet_SelCom.ApplicantsViewDataTable();
+                //adapter.FillAll(table);
 
-            ApplicantsGrid.ItemsSource = table;
+                ApplicantsViewTableAdapter adapterall = new ApplicantsViewTableAdapter();
+                DataSet_SelCom.ApplicantsViewDataTable tableall = new DataSet_SelCom.ApplicantsViewDataTable();
+                adapterall.Fill(tableall);
+                ApplicantsGrid.ItemsSource = tableall;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void UpdatePassports()
@@ -53,8 +66,6 @@ namespace SelСom
             PassportsTableAdapter adapter = new PassportsTableAdapter();
             DataSet_SelCom.PassportsDataTable table = new DataSet_SelCom.PassportsDataTable();
             adapter.Fill(table);
-
-            //ApplicantsGrid.ItemsSource = table;
         }
 
         private void UpdateCertificates()
@@ -62,8 +73,6 @@ namespace SelСom
             CertificatesTableAdapter adapter = new CertificatesTableAdapter();
             DataSet_SelCom.CertificatesDataTable table = new DataSet_SelCom.CertificatesDataTable();
             adapter.Fill(table);
-
-            //ApplicantsGrid.ItemsSource = table;
         }
 
 
@@ -72,8 +81,6 @@ namespace SelСom
             AchievementsTableAdapter adapter = new AchievementsTableAdapter();
             DataSet_SelCom.AchievementsDataTable table = new DataSet_SelCom.AchievementsDataTable();
             adapter.Fill(table);
-
-            //ApplicantsGrid.ItemsSource = table;
         }
 
        
@@ -178,6 +185,26 @@ namespace SelСom
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void Specialties_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string speciality = Specialties.SelectedValue.ToString();
+            if (speciality == "09.02.07" || speciality == "09.02.01" || speciality == "09.02.06")
+            {
+                SpecialtisApplicantsViewTableAdapter adapter = new SpecialtisApplicantsViewTableAdapter();
+                DataSet_SelCom.SpecialtisApplicantsViewDataTable table = new DataSet_SelCom.SpecialtisApplicantsViewDataTable();
+                adapter.Fill(table, speciality);
+                ApplicantsGrid.ItemsSource = table;
+            }
+            else
+            {
+                ApplicantsViewTableAdapter adapterall = new ApplicantsViewTableAdapter();
+                DataSet_SelCom.ApplicantsViewDataTable tableall = new DataSet_SelCom.ApplicantsViewDataTable();
+                adapterall.Fill(tableall);
+                ApplicantsGrid.ItemsSource = tableall;
+            }
+
         }
     }
 }
